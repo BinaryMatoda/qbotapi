@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using qbotapi.Controllers.ServiceInterfaces;
+using qbotapi.Services;
 
 namespace qbotapi
 {
@@ -26,6 +28,11 @@ namespace qbotapi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddHttpClient("chgk", cfg =>
+             {
+                 cfg.BaseAddress = new Uri(Configuration["chgk:url"]);
+             });
+            services.AddScoped<IChgkHttpService, ChgkHttpService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
