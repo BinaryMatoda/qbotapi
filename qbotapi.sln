@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29503.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "qbotapi", "qbotapi\qbotapi.csproj", "{B2067DEE-C8DF-411F-B2EA-FB8E0412929C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B2067DEE-C8DF-411F-B2EA-FB8E0412929C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2067DEE-C8DF-411F-B2EA-FB8E0412929C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2067DEE-C8DF-411F-B2EA-FB8E0412929C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2067DEE-C8DF-411F-B2EA-FB8E0412929C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D186028B-8125-4A25-89B0-4C4E18A11AF5}
+	EndGlobalSection
+EndGlobal
