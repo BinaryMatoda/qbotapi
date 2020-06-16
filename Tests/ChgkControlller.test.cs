@@ -38,7 +38,7 @@ namespace Tests
             _output.WriteLine(obj.Count.ToString());
             foreach (var item in obj)
             {
-                _output.WriteLine(item.question);
+                _output.WriteLine(item.question ?? string.Empty);
             }
             // Assert
             res.EnsureSuccessStatusCode(); // Status Code 200-299
