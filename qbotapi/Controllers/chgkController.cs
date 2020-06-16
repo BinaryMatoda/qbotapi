@@ -54,9 +54,10 @@ namespace qbotapi.Controllers
         {
             var rules = new Dictionary<string, string>()
             {
-                { "<br/>","\\n" },
-                { "<br />","\\n" },
-                { "<br>","\\n" },
+                { "<br/>"," " },
+                { "<br />"," " },
+                { "<br>"," " },
+                { @"\n"," " },
                 { "&nbsp;"," " },
                 { "&mdash;","-" }
             };
@@ -77,11 +78,6 @@ namespace qbotapi.Controllers
                 if (index2 >= 0)
                 {
                     var between = text.Substring(index1 + openTag.Length, index2 - index1 - openTag.Length);
-                    between = Regex.Replace(between, @"<br/>", @"\n");
-                    between = Regex.Replace(between, @"<br />", @"\n");
-                    between = Regex.Replace(between, @"<br>", @"\n");
-                    between = Regex.Replace(between, @"&nbsp;", @" ");
-                    between = Regex.Replace(between, @"&mdash;", @"-");
                     return between;
                 }
             }
@@ -96,16 +92,16 @@ namespace qbotapi.Controllers
 
 
             var question = getTextBetweenTags(html, divBegin, divEnd);
-            var title = Replace(getTextBetweenTags(getTextBetweenTags(question, "<p>", "</p>"), ">", "<"), @"\\n", " ");//.replace(/\n / g, " ");
-            var text = Replace(getTextBetweenTags(question, "</strong>", "<p>"), @"\\n", " "); ;//.replace(/\n / g, " ");
-
+            var title = replaceEncodedSymbols(getTextBetweenTags(getTextBetweenTags(question, "<p>", "</p>"), ">", "<"));
+            var text = replaceEncodedSymbols(getTextBetweenTags(question, "</strong>", "<p>"));
+            
             var img = getTextBetweenTags(question, "<img", ">");
 
             var answer = getTextBetweenTags(question, "<strong>Ответ:</strong>", "</p>");
             var answer2 = getTextBetweenTags(question, "<strong>Зачёт:</strong>", "</p>");
             var _author = getTextBetweenTags(question, "<strong>Автор:</strong>", "</p>");
-            var source = Replace(getTextBetweenTags(question, "<strong>Источник(и):</strong>", "</p>"), @"\\n", " ");//.replace(/\n / g, " ");
-            var comment = Replace(getTextBetweenTags(question, "<strong>Комментарий:</strong>", "</p>"), @"\\n", " ");//.replace(/\n / g, " ");
+            var source = replaceEncodedSymbols(getTextBetweenTags(question, "<strong>Источник(и):</strong>", "</p>"));
+            var comment = replaceEncodedSymbols(getTextBetweenTags(question, "<strong>Комментарий:</strong>", "</p>"));
 
             var tmp = getTextBetweenTags(_author, ">", "<");
             var author = tmp.Length == 0 ? _author : tmp;

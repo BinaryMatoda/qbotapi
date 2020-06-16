@@ -18,8 +18,10 @@ namespace qbotapi.Services
 
         public async Task<HttpResponseMessage> OnGet(int type, int complexity, int limit)
         {
+            var r = new Random();
+            var rand = r.Next((int)Math.Pow(10,7), (int)Math.Pow(10, 8));
             var request = new HttpRequestMessage(HttpMethod.Get,
-                $"random/answers/types{type}/complexity{complexity}/limit{limit}"
+                $"random/answers/types{type}/complexity{complexity}/{rand}/limit{limit}"
                 );
 
             var client = _clientFactory.CreateClient("chgk");
