@@ -17,7 +17,8 @@ namespace qbotapi.Controllers
         [HttpGet]
         public string Test()
         {
-            return new DateTime().ToString();
+            var now = new DateTime();
+            return now.ToString();
         }
     }
 }
