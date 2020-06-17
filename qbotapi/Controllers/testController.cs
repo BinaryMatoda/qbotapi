@@ -18,7 +18,7 @@ namespace qbotapi.Controllers
         public string Test()
         {
             var now = new DateTime();
-            return now.ToString();
+            return now.ToString("DD-MM-YYYY HH:mm:ss");
         }
     }
 }
