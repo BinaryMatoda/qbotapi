@@ -15,7 +15,7 @@ namespace qbotapi.Controllers
     public class testController : ControllerBase
     {
         [HttpGet]
-        public async Task<string> Test()
+        public string Test()
         {
             return new DateTime().ToString();
         }
